@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banana Bliss - Harina de Plátano Verde</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+
+body.dark-mode {
+            background: linear-gradient(45deg, #2e2e2e, #121212);
+            color: #e0e0e0;
+        }
+        body.dark-mode header {
+            background: #37474F;
+        }
+        body.dark-mode .nav-links a {
+            color: #ffffff;
+        }
+        body.dark-mode .nav-links a::after {
+            background: #81C784;
+        }
+        body.dark-mode header h1 {
+            color: #C8E6C9;
+        }
+        body.dark-mode header p {
+            color: #eeeeee;
+        }
+        body.dark-mode header a.button {
+            background: #66BB6A;
+        }
+        body.dark-mode header a.button:hover {
+            background: #4CAF50;
+        }
+        body.dark-mode section {
+            background: rgba(55, 71, 79, 0.95);
+            color: #e0e0e0;
+        }
+        body.dark-mode h2 {
+            color: #A5D6A7;
+        }
+        body.dark-mode p, 
+        body.dark-mode li, 
+        body.dark-mode td, 
+        body.dark-mode th {
+            color: #e0e0e0;
+        }
+        body.dark-mode .card {
+            background: #455A64;
+        }
+        body.dark-mode .card:hover {
+            box-shadow: 0px 10px 25px rgba(255, 255, 255, 0.2);
+        }
+        body.dark-mode table {
+            border-color: #789262;
+        }
+        body.dark-mode th {
+            background-color: #4CAF50;
+            color: #ffffff;
+        }
+        body.dark-mode footer {
+            background: #263238;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            margin: 0;
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(45deg, #e0ffe0, #ffffff);
+            color: #4E342E;
+            overflow-x: hidden;
+        }
+        header {
+            background: #A5D6A7;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            animation: fadeIn 2s ease;
+        }
+        nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .menu-icon {
+            font-size: 30px;
+            cursor: pointer;
+            display: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            animation: slideIn 1.5s ease;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #33691E;
+            font-weight: bold;
+            font-size: 1.2em;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #689F38;
+            left: 0;
+            bottom: -5px;
+            transition: width 0.4s;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        header h1 {
+            font-size: 3.5em;
+            color: #33691E;
+            margin-bottom: 15px;
+            animation: popUp 1s ease;
+        }
+        header p {
+            font-size: 1.8em;
+            color: #4E342E;
+            margin-bottom: 30px;
+            animation: popUp 1.5s ease;
+        }
+        header a.button {
+            text-decoration: none;
+            background: #8BC34A;
+            padding: 15px 40px;
+            border-radius: 50px;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: background 0.4s, transform 0.4s;
+            box-shadow: 0px 8px 15px rgba(0,0,0,0.2);
+            animation: pulse 2s infinite;
+        }
+        header a.button:hover {
+            background: #689F38;
+            transform: translateY(-5px) scale(1.05);
+        }
+        section {
+            padding: 70px 30px;
+            background: rgba(255, 255, 255, 0.95);
+            margin: 30px auto;
+            border-radius: 20px;
+            max-width: 1100px;
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+            animation: fadeInUp 1s ease forwards;
+            opacity: 0;
+        }
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 25px;
+            color: #2E7D32;
+            text-align: center;
+        }
+        p, li {
+            font-size: 1.2em;
+            line-height: 1.7;
+            color: #4E342E;
+        }
+        ul {
+            margin: 20px 0;
+            padding-left: 25px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .card {
+            background: #C8E6C9;
+            padding: 25px;
+            border-radius: 20px;
+            transition: transform 0.4s, box-shadow 0.4s;
+            cursor: pointer;
+            text-align: center;
+        }
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0px 10px 25px rgba(0,0,0,0.3);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        th, td {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+            font-size: 1.2em;
+        }
+        th {
+            background-color: #A5D6A7;
+            color: #33691E;
+        }
+        footer {
+            background: #33691E;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            border-top-left-radius: 40px;
+            border-top-right-radius: 40px;
+            margin-top: 80px;
+            font-size: 1.1em;
+            animation: fadeIn 2s ease;
+        }
+        @media (max-width: 768px) {
+            .menu-icon { display: block; }
+            .nav-links { display: none; flex-direction: column; }
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes popUp {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes slideIn {
+            0% { transform: translateX(100%); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* Diseño del botón de Modo Oscuro */
+        #darkModeToggle {
+            background-color: #444;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #darkModeToggle:hover {
+            background-color: #666;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header id="inicio">
+        <nav>
+            <div class="menu-top">
+              <div class="menu-icon" onclick="toggleMenu()">☰</div>
+              <button id="darkModeToggle">🌙 Modo Oscuro</button>
+            </div>
+            <div class="nav-links" id="nav-links">
+              <a href="#proyecto">Proyecto</a>
+              <a href="#producto">Producto</a>
+              <a href="#proceso">Proceso</a>
+              <a href="#beneficios">Beneficios</a>
+              <a href="#nutricion">Nutrición</a>
+              <a href="#conclusion">Conclusión</a>
+            </div>
+          </nav>
+        <h1>Banana Bliss</h1>
+        <p>De la tierra a tu mesa, puro sabor</p>
+        <a href="#proyecto" class="button">Descúbrelo</a>
+    </header>
+
+<section id="proyecto">
+    <h2>Información del Proyecto</h2>
+    <p><strong>Materia:</strong> Diseño de producto</p>
+    <p><strong>Carrera:</strong> Lic. Ingeniería Industrial</p>
+    <p><strong>Proyecto:</strong> Elaboración de plátano verde con fibra dietética aportando beneficios a la salud.</p>
+    <p><strong>Nombre del Producto:</strong> "Banana Bliss"</p>
+    <p><strong>Lema:</strong> "De la tierra a tu mesa, puro sabor"</p>
+    <p><strong>Docente:</strong> Lic. Josefa Juárez Caporali</p>
+    <p><strong>Ciclo:</strong> 8vo cuatrimestre</p>
+    <p><strong>Integrantes:</strong> Arlet Arias Reyes, Cristhell Guadalupe Sánchez G., Landy del Carmen Méndez C., Daniel Salaya Ramirez</p>
+    <center><img src="img/a5426010-eb47-4080-899a-2459fab43a74.png" alt="Proceso de la Harina de Plátano" height="400px" width="400px"></center>
+</section>
+
+<section id="producto">
+    <h2>Definición del Producto</h2>
+    <p>La producción de Harina de Banano constituiría una innovación industrial...</p>
+    <ul>
+        <li>Panadería y repostería: Panes, panqueques, galletas, tortas de plátano, flan de plátano.</li>
+        <li>Productos desayuno: Avena de plátano.</li>
+        <li>Productos para bebés: Papilla de plátano y galletas para bebés.</li>
+    </ul>
+    <p><strong>Misión:</strong> En Banana Bliss, nos comprometemos a ofrecer una harina de plátano 100% natural...</p>
+    <p><strong>Visión:</strong> Ser la marca líder en harina de plátano natural a nivel nacional e internacional...</p>
+</section>
+
+<section id="proceso">
+    <h2>Proceso de Elaboración</h2>
+    <p>Es durante la etapa de elaboración, cuenta con tres métodos de deshidratación.</p>
+    <h3>Método #1: Deshidratación al aire libre</h3>
+    <ul>
+        <li>Lavar y pelar los plátanos verdes...</li>
+    </ul>
+
+    <h3>Método #2: Deshidratación en horno</h3>
+    <ul>
+        <li>Lavar y pelar los plátanos verdes...</li>
+    </ul>
+
+    <h3>Método #3: Deshidratación con deshidratadora</h3>
+    <ul>
+        <li>Lavar y pelar los plátanos verdes...</li>
+    </ul>
+</section>
+
+<section id="beneficios">
+    <h2>Beneficios del Producto</h2>
+    <ul>
+        <li>Ayuda en la digestión.</li>
+        <li>Controla la hipertensión.</li>
+        <li>Regula los niveles de colesterol.</li>
+        <li>Es un aliado para la salud intestinal.</li>
+        <li>Fortalece el sistema inmunológico.</li>
+    </ul>
+</section>
+
+<section id="nutricion">
+    <h2>Valor Nutricional</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Componente</th>
+                <th>Valor por 100g</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Calorías</td><td>389 kcal</td></tr>
+            <tr><td>Proteínas</td><td>3.9 g</td></tr>
+            <tr><td>Carbohidratos</td><td>89.5 g</td></tr>
+            <tr><td>Fibra</td><td>8.6 g</td></tr>
+            <tr><td>Grasas</td><td>1.3 g</td></tr>
+            <tr><td>Vitaminas</td><td>Vitaminas A, C, y B6</td></tr>
+        </tbody>
+    </table>
+    <center><img src="img/banana.png" alt=""></center>
+</section>
+
+<section id="conclusion">
+    <h2>Conclusión</h2>
+    <p>El proyecto de elaboración de harina de plátano es una solución innovadora que aporta beneficios tanto nutricionales como económicos...</p>
+</section>
+
+<footer>
+    <p>&copy; 2025 Banana Bliss. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+function toggleMenu() {
+    const navLinks = document.getElementById("nav-links");
+    navLinks.style.display = navLinks.style.display === "flex" ? "none" : "flex";
+}
+
+// Todo tu script dentro del DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+
+    // Animar secciones al hacer scroll
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animation = 'fadeInUp 1s ease forwards';
+            }
+        });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // Botón para activar/desactivar Modo Oscuro
+    const darkModeToggle = document.getElementById('darkModeToggle');
+    darkModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        if (document.body.classList.contains('dark-mode')) {
+            darkModeToggle.textContent = '☀️ Modo Claro';
+        } else {
+            darkModeToggle.textContent = '🌙 Modo Oscuro';
+        }
+    });
+});
+</script>
+
+</body>
+</html>
